@@ -1,0 +1,44 @@
+azvote.error.nomaps=Couldn't find any maps for %s. Use !grtv instead.
+azvote.error.alreadyrocked=You've already rocked the vote.
+
+azvote.error.alreadyinprocess=A vote is already in process.
+azvote.error.notenoughvotes=Not enough votes to change map. (%s of %s needed)
+azvote.error.gamemode_notenoughvotes=Not enough votes to change gamemode. (%s of %s needed)
+azvote.error.gamemodertvfailed=Not enough rocks to start a gamemode vote. (%s / %s)
+azvote.error.votewillbeunlocked=You'll be able to vote in %s seconds.
+
+azvote.votemap=Vote for next map
+azvote.item.votecount=Votes: %s
+
+azvote.mapvote.winning.random=Looks like nobody voted. Well, next map is %s.
+azvote.mapvote.willchangein=Map will change in %s seconds.
+azvote.mapvote.nextround=Map will change after round end.
+
+azvote.mapvote.rtv=[!att color 32 220 32]%s[!att color 220 220 220] has rocked the vote [!att color 32 220 32](%s / %s)
+azvote.mapvote.rtv.first=[!att color 32 220 32]%s[!att color 220 220 220] wants to change the map. [!att color 32 220 32](%s / %s)
+azvote.mapvote.rtv.hint=Type [!att color 32 220 32]%s[!att color 220 220 220] to rock the vote.
+
+azvote.mapvote.rtv.error.failed=[!att color 220 32 32]Map RTV has failed.
+azvote.mapvote.rtv.error.maps=[!att color 220 32 32]There is no maps for current gamemode. Whoops!
+azvote.mapvote.rtv.error.gamemode=[!att color 220 32 32]Couldn't find gamemode config. Whoops!
+
+azvote.mapvote.rtv.error.votes=[!att color 220 128 128]Not enough rocks to start the map vote. [!att color 220 32 32](%s / %s)
+azvote.mapvote.error.alreadyrocked=You've already rocked the vote.
+azvote.mapvote.winning=[LUA]
+	local args = { ... }
+	local votes = tonumber(args[2])
+	if (votes == 1) then
+		votes = string.format("%s vote", votes)
+	else
+		votes = string.format("%s votes", votes)
+	end
+	
+	return string.format("The winning map is %s. [!att color 32 220 32](%s)", args[1], votes)
+[/LUA]
+
+azvote.countdown.changesin=The map changes in
+azvote.countdown.nextmap=Next map is %s
+azvote.countdown.gamemode=Next gamemode is %s
+azvote.countdown.samegamemode=(same gamemode)
+
+azvote.cancel.restart=Vote was cancelled due to reload. :(
